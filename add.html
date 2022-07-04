@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer src="add.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<!--NavBar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Social Media With Local Storage</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="add.html">Add Post</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--Form-->
+<div class="container my-5 px-3 mx-auto d-flex flex-column gap-4">
+    <form>
+        <div class="row mb-4">
+            <label for="author" class="col-sm-2 col-form-label">Username</label>
+            <div class="col-sm-10 my-auto">
+                <input type="text" class="form-control" id="author">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <p class="col-sm-2 col-form-label">Media File Type</p>
+            <div class="col-sm-10 my-auto">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="mediaType" type="radio" id="image" value="image">
+                    <label class="form-check-label" for="image">Image</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="mediaType" type="radio" id="video" value="video">
+                    <label class="form-check-label" for="video">Video</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="mediaType" type="radio" id="none" value="none">
+                    <label class="form-check-label" for="none">None</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" id="mediaSource">
+            <p class="col-sm-2 col-form-label">Media Source</p>
+            <div class="col-sm-10 my-auto">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="mediaSource" type="radio" id="storage" value="storage">
+                    <label class="form-check-label" for="storage">File Storage</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="mediaSource" type="radio" id="camera" value="camera">
+                    <label class="form-check-label" for="camera">Camera</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" id="cameraOption">
+            <label for="cameraFile" class="col-sm-2 col-form-label">Media</label>
+            <div class="col-sm-10 my-auto justify-content-center">
+                <div class="row row-cols-2">
+                    <div class="col-6">
+                        <video id="cameraFile" autoplay muted poster="assests/videoNotFound.png" class="w-100"></video>
+                        <p id="videoStreamStatus" class=""></p>
+                    </div>
+                    <div class="col-6">
+                        <canvas class="w-100"></canvas>
+                    </div>
+                </div>
+                <div class="d-flex align-content-center gap-4">
+                    <button class="btn btn-primary" id="snapPhoto">Take picture</button>
+                    <button class="btn btn-danger" id="recordVideo">Start Recording</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" id="fileOption">
+            <p class="col-sm-2 col-form-label">Media</p>
+            <div class="col-sm-10 my-auto d-flex flex-column gap-4">
+                <div class="row row-cols-1">
+                    <div class="col">
+                        <input class="form-control" type="file" id="mediaFile">
+                    </div>
+                </div>
+                <div class="row row-cols-1">
+                    <div class="col-5">
+                        <canvas class="w-100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <p class="col-sm-2 col-form-label">Location</p>
+            <div class="col-sm-10 my-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="location" value="true">
+                    <label class="form-check-label" for="location">Use Current Location</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label for="textArea" class="col-sm-2 col-form-label">Post Text</label>
+            <div class="col-sm-10 my-auto">
+                <textarea class="form-control" id="textArea" rows="3"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Post</button>
+    </form>
+</div>
+</body>
+</html>
